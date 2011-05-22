@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 283;
+use Test::More tests => 275;
 use Linux::Prctl qw(:constants);
 
 SKIP: {
@@ -25,8 +25,8 @@ SKIP: {
         is($Linux::Prctl::cap_effective{$_}, $R, "Checking whether $_ is set to $R in cap_effective");
 
         $Linux::Prctl::cap_permitted{$_} = 0;
-        is($Linux::Prctl::cap_permitted{$_}, 1, "Checking whether $_ is set to $R in cap_permitted");
+        is($Linux::Prctl::cap_permitted{$_}, $R, "Checking whether $_ is set to $R in cap_permitted");
         $Linux::Prctl::cap_permitted{$_} = 1;
-        is($Linux::Prctl::cap_permitted{$_}, 1, "Checking whether $_ is set to $R in cap_permitted");
+        is($Linux::Prctl::cap_permitted{$_}, $R, "Checking whether $_ is set to $R in cap_permitted");
     }
 }
