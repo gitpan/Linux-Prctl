@@ -12,7 +12,7 @@ for(@{$Linux::Prctl::EXPORT_TAGS{capabilities}}) {
     SKIP: {
         s/^CAP_//;
         $_ = lc($_);
-        eval{$Linux::Prctl::cap_permitted{$_}; 1} or skip("$_ not defined", 8);
+        eval{my $ign = $Linux::Prctl::cap_permitted{$_}; 1} or skip("$_ not defined", 8);
         is($Linux::Prctl::cap_permitted{$_}, $R, "Checking whether $_ is set in cap_permitted");
         is($Linux::Prctl::cap_effective{$_}, $R, "Checking whether $_ is set in cap_effective");
         is($Linux::Prctl::cap_inheritable{$_}, 0, "Checking whether $_ is set in cap_inheritable");
