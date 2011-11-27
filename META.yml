@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Linux-Prctl
-version:            1.4
+version:            1.4.1
 abstract:           Perl extension for controlling process characteristics
 author:
     - Dennis Kaarsemaker <dennis@kaarsemaker.net>
